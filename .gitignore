@@ -1,0 +1,14 @@
+.DS_Store
+.vs
+x64/
+*.sln
+*.vcxproj.user
+*.dll
+*.lib
+*.dylib
+bin/
+obj/
+lib/
+license/
+examples/*/*.wav
+Immersitech_Engineering_sound_manager_license_key.dat

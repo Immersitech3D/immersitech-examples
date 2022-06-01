@@ -1,0 +1,9 @@
+{
+	"port": 9002,
+	"cert_file_name": "./assets/server.pem",
+	"key_file_name": "./assets/server.pem",
+	"dh_params_file_name": "./assets/dh.pem",
+	"passphrase": "none",
+	"authentification_key": "Immersitech",
+	"authentification_value": "I_am_valid_immersitech_please_accept_me"
+}

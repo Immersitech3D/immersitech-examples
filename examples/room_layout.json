@@ -1,0 +1,200 @@
+{
+    "default": "room1",
+    "room_list" : {
+        "room1": {
+            "id": 1,
+            "desc": "Eight person conference room with round table.",
+            "allowParticipantStacking": false,
+            "stackDelta":10,
+			"openRoom": false,
+			"centerPoint": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"defaultStates": {
+				"IMM_CONTROL_AGC_ENABLE": true,
+				"IMM_CONTROL_ANC_ENABLE": true,
+				"IMM_CONTROL_MIXING_3D_ENABLE": true,
+				"IMM_CONTROL_MIXING_3D_ATTENUATION": 0,
+				"IMM_CONTROL_MIXING_3D_MAX_DISTANCE": 300,	
+				"IMM_CONTROL_MIXING_3D_REVERB_ENABLE": false
+			},
+            "seats": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "z": 110
+                },
+                {
+                    "x": 78,
+                    "y": 0,
+                    "z": 78
+                },
+                {
+                    "x": 110,
+                    "y": 0,
+                    "z": 0
+                },
+                {
+                    "x": 78,
+                    "y": 0,
+                    "z": -78
+                },
+                {
+                    "x": 0,
+                    "y": 0,
+                    "z": -110
+                },
+                {
+                    "x": -78,
+                    "y": 0,
+                    "z": -78
+                },
+                {
+                    "x": -110,
+                    "y": 0,
+                    "z": 0
+                },
+                {
+                    "x": -78,
+                    "y": 0,
+                    "z": 78
+                }
+            ]
+        },
+        "room2": {
+            "id": 2,
+            "desc": "Fifteen person classroom with instructor at front. All students at same level; no stadium seating.",
+            "allowParticipantStacking": false,
+			"stackDelta":10,
+			"openRoom": false,
+			"centerPoint": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+            "seats": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                {
+                    "x": -100,
+                    "y": 0,
+                    "z": -50
+                },
+                {
+                    "x": -50,
+                    "y": 0,
+                    "z": -50
+                },
+                {
+                    "x": 50,
+                    "y": 0,
+                    "z": -50
+                },
+                {
+                    "x": 100,
+                    "y": 0,
+                    "z": -50
+                },
+                {
+                    "x": -100,
+                    "y": 0,
+                    "z": -100
+                },
+                {
+                    "x": -50,
+                    "y": 0,
+                    "z": -100
+                },
+                {
+                    "x": 50,
+                    "y": 0,
+                    "z": -100
+                },
+                {
+                    "x": 100,
+                    "y": 0,
+                    "z": -100
+                },
+                {
+                    "x": -100,
+                    "y": 0,
+                    "z": -150
+                },
+                {
+                    "x": -50,
+                    "y": 0,
+                    "z": -150
+                },
+                {
+                    "x": 50,
+                    "y": 0,
+                    "z": -150
+                },
+                {
+                    "x": 100,
+                    "y": 0,
+                    "z": -150
+                },
+                {
+                    "x": -50,
+                    "y": 0,
+                    "z": -200
+                },
+                {
+                    "x": 50,
+                    "y": 0,
+                    "z": -200
+                }
+            ]
+        },
+		"room3": {
+            "id": 3,
+            "desc": "Open Room where Participants can move to any x, y, z location",
+            "allowParticipantStacking": true,
+			"openRoom": true,
+			"centerPoint": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+            "seats": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            ]
+        },
+		"room4": {
+            "id": 4,
+            "desc": "An open room where the center point is not at (0,0,0)",
+            "allowParticipantStacking": true,
+			"openRoom": true,
+			"centerPoint": {
+				"x": -100,
+				"y": 100,
+				"z": 100
+			},
+			"defaultStates": {
+				"IMM_CONTROL_AGC_ENABLE": false,
+				"IMM_CONTROL_ANC_ENABLE": false,
+				"IMM_CONTROL_MIXING_3D_ENABLE": true,
+				"IMM_CONTROL_MIXING_3D_ATTENUATION": 6,
+				"IMM_CONTROL_MIXING_3D_MAX_DISTANCE": 500,	
+				"IMM_CONTROL_MIXING_3D_REVERB_ENABLE": true
+			},
+            "seats": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            ]
+        }
+    }
+}
