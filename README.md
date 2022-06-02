@@ -11,3 +11,20 @@ This repository contains the latest release of the Immersitech Engage SDK binari
 one of the tar files for Mac or Windows. Some of the release names have `-full` or `no-spatial-audio` appended. Choose the version which is right for your use case.
 
 If you are looking to get started with our [Public Freeswitch Adapter](https://github.com/Immersitech3D/public_freeswitch_adapter) then you will want to download either the Debian or Ubuntu release files.
+
+# Immersitech SDK Examples
+
+**Windows**
+- Run `mkdir lib`
+- Drop your .dll, .lib, or .dylib files into the `lib` folder
+
+**Mac**
+- Run `mkdir /usr/local/lib/immersitech` as an administrator
+- Place your .dylib file into `/usr/local/lib/immersitech`
+
+- Run `mkdir license`
+- Place your license key in the `license` folder
+- Build each individual example using the provided Visual Studio project or makefile.
+
+Example WAV files are provided [here](https://github.com/Immersitech3D/immersitech-engage-examples/tree/master/audio_files)
+
