@@ -14,6 +14,8 @@ If you are looking to get started with our [Public Freeswitch Adapter](https://g
 
 # Immersitech SDK Examples
 
+- Clone this repository
+
 **Windows**
 - Run `mkdir lib`
 - Drop your .dll, .lib, or .dylib files into the `lib` folder
