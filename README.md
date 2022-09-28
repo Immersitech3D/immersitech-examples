@@ -19,14 +19,14 @@ If you are looking to get started with our [Public Freeswitch Adapter](https://g
 **Windows**
 - Run `mkdir lib`
 - Drop your .dll, .lib, or .dylib files into the `lib` folder
+- Run `mkdir license`
+- Place your license key in the `license` folder
+- Build each individual example using the provided Visual Studio project.
 
 **Mac**
 - Run `mkdir /usr/local/lib/immersitech` as an administrator
 - Place your .dylib file into `/usr/local/lib/immersitech`
-
-- Run `mkdir license`
-- Place your license key in the `license` folder
-- Build each individual example using the provided Visual Studio project or makefile.
+- Build each individual example using the provided Makefile.
 
 Example WAV files are provided [here](https://github.com/Immersitech3D/immersitech-engage-examples/tree/master/audio_files)
 
