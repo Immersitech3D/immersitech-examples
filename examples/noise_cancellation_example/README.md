@@ -1,4 +1,4 @@
-# 3D Audio Example
+# Noise Cancellation Example
 
 ## Usage
 
