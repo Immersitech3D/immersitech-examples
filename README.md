@@ -14,13 +14,16 @@ If you are looking to get started with our [Public Freeswitch Adapter](https://g
 
 # Immersitech SDK Examples
 
-- Clone this repository
+- `git clone https://github.com/Immersitech3D/immersitech-engage.git`
+- `cd immersitech-engage`
+- `mkdir lib`
+- `mkdir license`
+- `mkdir include`
+- Place your license key in the `license` folder
+- Place the Immersitech header files in the the `include` folder
 
 **Windows**
-- Run `mkdir lib`
-- Drop your .dll, .lib, or .dylib files into the `lib` folder
-- Run `mkdir license`
-- Place your license key in the `license` folder
+- Drop your .dll and .lib files into the `lib` folder
 - Build each individual example using the provided Visual Studio project.
 
 **Mac**
