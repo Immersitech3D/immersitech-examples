@@ -10,5 +10,6 @@ bin/
 obj/
 lib/
 license/
+include/
 examples/*/*.wav
 Immersitech_Engineering_sound_manager_license_key.dat
