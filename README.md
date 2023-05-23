@@ -1,35 +1,17 @@
 # Immersitech Engage™ Core SDK
 
-The Immersitech SDK is a C / C++ library that allow you to easily augment your existing audio applications with several audio effects, including noise cancellation, 3D spatial audio, and voice clarity effects. Provide the library with an input audio buffer and the library will output an audio buffer with the enhanced audio. See our [developer](https://immersitech.io/developer/) page for more information.
+The Immersitech SDK is a C / C++ library that allow you to easily augment your existing audio applications with several audio effects, including noise cancellation, 3D spatial audio, and voice clarity effects. Provide the library with an input audio buffer and the library will output an audio buffer with the enhanced audio. See our [developer](https://developer.immersitech.io/) page for more information.
 
 # License Key
-Please reach out to us about starting a [trial](https://immersitech.io/trialsdk/) of the Immersitech Engage™ Core SDK now.
+A license file is needed to use the SDK. If you need one, please reach out to us about starting a [trial](https://immersitech.io/demo/) of the Immersitech SDK now.
 
 # Release Binaries
 
-This repository contains the latest release of the Immersitech Engage SDK binaries. It is recommended that if are getting started with the SDK you download
-one of the tar files for Mac or Windows. Some of the release names have `-full` or `no-spatial-audio` appended. Choose the version which is right for your use case.
-
-If you are looking to get started with our [Public Freeswitch Adapter](https://github.com/Immersitech3D/public_freeswitch_adapter) then you will want to download either the Debian or Ubuntu release files.
+This repository used to contain the release binaries of the SDK. To get the most up to date version, please reach out to us [here](https://immersitech.io/demo/).
 
 # Immersitech SDK Examples
 
-- `git clone https://github.com/Immersitech3D/immersitech-engage.git`
-- `cd immersitech-engage`
-- `mkdir lib`
-- `mkdir license`
-- `mkdir include`
-- Place your license key in the `license` folder
-- Place the Immersitech header files in the the `include` folder
+Check out the [examples folder](https://github.com/Immersitech3D/immersitech-engage/tree/main/examples) to see the SDK in use.
 
-**Windows**
-- Drop your .dll and .lib files into the `lib` folder
-- Build each individual example using the provided Visual Studio project.
-
-**Mac**
-- Run `mkdir /usr/local/lib/immersitech` as an administrator
-- Place your .dylib file into `/usr/local/lib/immersitech`
-- Build each individual example using the provided Makefile.
-
-Example WAV files are provided [here](https://github.com/Immersitech3D/immersitech-engage-examples/tree/master/audio_files)
+Example WAV files are provided in the [audio files folder](https://github.com/Immersitech3D/immersitech-engage/tree/main/audio_files).
 
