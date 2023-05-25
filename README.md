@@ -7,7 +7,7 @@ A license file is needed to use the SDK. If you need one, please reach out to us
 
 # Release Binaries
 
-This repository used to contain the release binaries of the SDK. To get the most up to date version, please reach out to us [here](https://immersitech.io/demo/).
+This repository used to contain the release binaries of the SDK, but you can download the latest release [here](https://developer.immersitech.io/).
 
 # Immersitech SDK Examples
 
