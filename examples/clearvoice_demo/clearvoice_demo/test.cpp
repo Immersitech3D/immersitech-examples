@@ -53,7 +53,7 @@ int main(int argc, const char* argv[])
     m_configuration.output_sampling_rate = SAMPLERATE_HZ;
     m_configuration.spatial_quality = 3;
 
-    m_imm_instance = imm_initialize_library("../../../license/Immersitech_Engineering_sound_manager_license_key.dat", NULL, NULL, m_configuration, &error_code);
+    m_imm_instance = imm_initialize_library("Immersitech_Engineering_sound_manager_license_key.dat", NULL, NULL, m_configuration, &error_code);
     if (error_code != IMM_ERROR_NONE)
     {
         /* Error */
