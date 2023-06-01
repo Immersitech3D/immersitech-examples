@@ -1,7 +1,6 @@
 .DS_Store
 .vs
 x64/
-*.sln
 *.vcxproj.user
 *.dll
 *.lib
