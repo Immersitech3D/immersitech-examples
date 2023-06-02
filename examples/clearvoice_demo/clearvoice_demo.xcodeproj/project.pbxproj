@@ -138,7 +138,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nmkdir ${PROJECT_DIR}/build\ncp ${BUILT_PRODUCTS_DIR}/${EXECUTABLE_NAME} ${PROJECT_DIR}/build/${EXECUTABLE_NAME}\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nmkdir ${PROJECT_DIR}/build\ncp ${BUILT_PRODUCTS_DIR}/${EXECUTABLE_NAME} ${PROJECT_DIR}/build/${EXECUTABLE_NAME}\ncp ${PROJECT_DIR}/../../license/*.dat ${PROJECT_DIR}/build/\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
