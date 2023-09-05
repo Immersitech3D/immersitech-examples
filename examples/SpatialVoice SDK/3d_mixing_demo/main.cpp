@@ -129,8 +129,8 @@ int main(int argc, const char* argv[])
 		imm_set_participant_position(imm_instance, room_id, i, position, heading);
 	}
 
-    float* input_buffer = new float[1024];
-    float* output_buffer = new float[1024];
+    float* input_buffer = new float[2048];
+    float* output_buffer = new float[2048];
     int s = 0;
     while (1) {
         /* In this example, we will just end when the first file is finished */
@@ -138,6 +138,7 @@ int main(int argc, const char* argv[])
             break;
         }
 
+        /* Input audio for each participant */
         for (int i = 0; i < number_participants; i++) {
             if (participant_num_channels[i] == 1) {
                 memcpy(input_buffer, &inputFiles[i].samples[0][s * participant_num_input_frames[i]], participant_num_input_frames[i] * sizeof(float));
@@ -153,25 +154,27 @@ int main(int argc, const char* argv[])
             }
         }
 
-
+        /* Get the output audio for each participant */
         for (int i = 0; i < number_participants; i++) {
             error_code = imm_output_audio_float(imm_instance, room_id, i, output_buffer);
             if (error_code != IMM_ERROR_NONE) {
                 /* Error */
                 std::cout << "imm_output_audio_float for participant failed with error code " << error_code <<std::endl;
             }
-            memcpy(&outputFiles[i].samples[0][s * BLOCKSIZE_SAMPLES], output_buffer, BLOCKSIZE_SAMPLES);
-            memcpy(&outputFiles[i].samples[1][s * BLOCKSIZE_SAMPLES], output_buffer + BLOCKSIZE_SAMPLES, BLOCKSIZE_SAMPLES);
+            memcpy(&outputFiles[i].samples[0][s * BLOCKSIZE_SAMPLES], output_buffer, BLOCKSIZE_SAMPLES * sizeof(float));
+            memcpy(&outputFiles[i].samples[1][s * BLOCKSIZE_SAMPLES], output_buffer + BLOCKSIZE_SAMPLES, BLOCKSIZE_SAMPLES * sizeof(float));
         }
         s = s+1;
     }
 
+    /* Write the output files */
     for (int i = 0; i < number_participants; i++) {
+        std::string file_name = "outfile_" + std::to_string(i+1) + ".wav";
         outputFiles[i].setBitDepth(16);
-        //outputFiles[i].setNumSamplesPerChannel(samplesWritten);
-        outputFiles[i].save("./TESTOUTFILE.wav", AudioFileFormat::Wave);
+        outputFiles[i].save(file_name, AudioFileFormat::Wave);
     }
 
+    /* Remove participants */
     for (int i = 0; i < number_participants; i++) {
         error_code = imm_remove_participant(imm_instance, room_id, i);
         if (error_code != IMM_ERROR_NONE) {
