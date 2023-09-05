@@ -1,4 +1,5 @@
 ### To compile
+Add immersitech.h and immersitech_logger.h to this folder. Then,
 ```
 g++ -std=c++17 ./main.cpp -L${PATH_TO_IMMERSITECH_LIBRARY} -limmersitech -Xlinker -rpath -Xlinker ${PATH_TO_IMMERSITECH_LIBRARY}
 ```
