@@ -18,9 +18,6 @@ imm_error_code error_code;
 This command line tool takes an input wav file and processes it through the SDK. The processed
 audio is stored as a wav file.
 
-IMPORTANT:
-The input wav files MUST be mono and have a sample rate of 48kHz.
-
 SYNTAX:
 3d_mixing_demo.exe <input_1.wav> <input_2.wav> ... <input_N.wav>
 
