@@ -7,8 +7,8 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#define SAMPLERATE_HZ (48000)
-#define BLOCKSIZE_SAMPLES (480)
+#define OUTPUT_SAMPLE_RATE (48000)
+#define OUTPUT_NUM_FRAMES (480)
 
 imm_participant_configuration participant_config;
 imm_error_code error_code;
@@ -49,8 +49,8 @@ int main(int argc, const char* argv[])
     imm_library_configuration config;
     config.interleaved = false;
     config.output_number_channels = 2;
-    config.output_number_frames = BLOCKSIZE_SAMPLES;
-    config.output_sampling_rate = SAMPLERATE_HZ;
+    config.output_number_frames = OUTPUT_NUM_FRAMES;
+    config.output_sampling_rate = OUTPUT_SAMPLE_RATE;
     config.spatial_quality = 3;
 
     imm_handle imm_instance = imm_initialize_library("Immersitech_Engineering_sound_manager_license_key.dat", NULL, NULL, config, &error_code);
@@ -79,7 +79,7 @@ int main(int argc, const char* argv[])
         }
         participant_sampling_rates[i] = inputFiles[i].getSampleRate();
         participant_num_channels[i] = inputFiles[i].getNumChannels();
-        participant_num_input_frames[i] = (BLOCKSIZE_SAMPLES * participant_sampling_rates[i]) / SAMPLERATE_HZ;
+        participant_num_input_frames[i] = (OUTPUT_NUM_FRAMES * participant_sampling_rates[i]) / OUTPUT_SAMPLE_RATE;
 
         maxNumSamples = std::max(maxNumSamples, inputFiles[i].getNumSamplesPerChannel());
     }
@@ -87,9 +87,9 @@ int main(int argc, const char* argv[])
     /* Create output files */
     AudioFile<float>* outputFiles = new AudioFile<float>[number_participants];
     for (int i = 0; i < number_participants; i++) {
-        outputFiles[i].setSampleRate(SAMPLERATE_HZ);
+        outputFiles[i].setSampleRate(OUTPUT_SAMPLE_RATE);
         outputFiles[i].setNumChannels(2);
-        outputFiles[i].setNumSamplesPerChannel(maxNumSamples + SAMPLERATE_HZ);
+        outputFiles[i].setNumSamplesPerChannel(maxNumSamples + OUTPUT_SAMPLE_RATE);
     }
     
     /* Add each participant to the room */
@@ -145,7 +145,7 @@ int main(int argc, const char* argv[])
             }
             else {
                 memcpy(input_buffer, &inputFiles[i].samples[0][s * participant_num_input_frames[i]], participant_num_input_frames[i] * sizeof(float));
-                memcpy(input_buffer + participant_num_input_frames[i], &inputFiles[i].samples[1][i * participant_num_input_frames[i]], participant_num_input_frames[i] * sizeof(float));
+                memcpy(input_buffer + participant_num_input_frames[i], &inputFiles[i].samples[1][s * participant_num_input_frames[i]], participant_num_input_frames[i] * sizeof(float));
             }
             error_code = imm_input_audio_float(imm_instance, room_id, i, input_buffer, participant_num_input_frames[i]);
             if (error_code != IMM_ERROR_NONE) {
@@ -161,8 +161,8 @@ int main(int argc, const char* argv[])
                 /* Error */
                 std::cout << "imm_output_audio_float for participant failed with error code " << error_code <<std::endl;
             }
-            memcpy(&outputFiles[i].samples[0][s * BLOCKSIZE_SAMPLES], output_buffer, BLOCKSIZE_SAMPLES * sizeof(float));
-            memcpy(&outputFiles[i].samples[1][s * BLOCKSIZE_SAMPLES], output_buffer + BLOCKSIZE_SAMPLES, BLOCKSIZE_SAMPLES * sizeof(float));
+            memcpy(&outputFiles[i].samples[0][s * OUTPUT_NUM_FRAMES], output_buffer, OUTPUT_NUM_FRAMES * sizeof(float));
+            memcpy(&outputFiles[i].samples[1][s * OUTPUT_NUM_FRAMES], output_buffer + OUTPUT_NUM_FRAMES, OUTPUT_NUM_FRAMES * sizeof(float));
         }
         s = s+1;
     }
