@@ -1,0 +1,5 @@
+### To compile
+Add immersitech_clearvoice.h to this folder. Then:
+```
+g++ -std=c++17 ./main.cpp -L${PATH_TO_IMMERSITECH_LIBRARY} -lclearvoice -Xlinker -rpath -Xlinker ${PATH_TO_IMMERSITECH_LIBRARY} -I${PATH_TO_IPP_INCLUDE} -L${PATH_TO_IPP_LIBRARIES} -lippi -lipps -lippvm -lippcore -Xlinker -rpath -Xlinker ${PATH_TO_IPP_LIBRARIES}
+```
