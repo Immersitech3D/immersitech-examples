@@ -11,4 +11,5 @@ lib/
 license/
 include/
 examples/*/*.wav
+examples/*/build
 Immersitech_Engineering_sound_manager_license_key.dat

@@ -3,21 +3,20 @@
 
 #include <stdio.h>
 
-#define LICENSE_FILEPATH "./Immersitech_Engineering_sound_manager_license_key.dat"
-
 int main(int argc, const char* argv[])
 {
-    if (argc < 6)
+    if (argc < 7)
     {
-        std::cout << "Usage: \n3d_mixing_demo.exe <input.wav> <output.wav> <anc_mix> <agc_enable> <aeq_enable>" << std::endl;
+        std::cout << "Usage: \nclearvoice_demo.exe <licensefile> <input.wav> <output.wav> <anc_mix> <agc_enable> <aeq_enable>" << std::endl;
         return 1;
     }
 
-    const char* input_audio_file = argv[1];
-    const char* output_audio_file = argv[2];
-    int anc_mix = atoi(argv[3]);
-	int aeq_enabled = atoi(argv[4]);
-	int agc_enabled = atoi(argv[5]);
+    const char* license_filepath = argv[1];
+    const char* input_audio_file = argv[2];
+    const char* output_audio_file = argv[3];
+    int anc_mix = atoi(argv[4]);
+	int aeq_enabled = atoi(argv[5]);
+	int agc_enabled = atoi(argv[6]);
 
     // Load input file
     AudioFile<float> input_file;
@@ -33,18 +32,14 @@ int main(int argc, const char* argv[])
         return 1;
     }
     int max_samples = input_file.getNumSamplesPerChannel();
+    int buffer_size = sample_rate / 100; // ClearVoice always processes using 10ms buffers
 
     // Create output file
     AudioFile<float> output_file;
     output_file.setNumSamplesPerChannel(max_samples);
 
-    // Setup buffers
-    int buffer_size = sample_rate / 100; // ClearVoice always processes using 10ms buffers
-    float *input_buffer = new float[buffer_size];
-    float *output_buffer = new float[buffer_size];
-
     // Initialize Immersitech ClearVoice
-    imm_clearvoice speech_enhancer = imm_clearvoice(LICENSE_FILEPATH, sample_rate, aeq_enabled, agc_enabled, anc_mix);
+    imm_clearvoice speech_enhancer = imm_clearvoice(license_filepath, sample_rate, aeq_enabled, agc_enabled, anc_mix);
 
     // Process audio file one buffer at a time
     int s = 0;
