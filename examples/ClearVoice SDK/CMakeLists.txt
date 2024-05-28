@@ -5,22 +5,22 @@ project("Immersitech ClearVoice Demo" LANGUAGES C CXX)
 #============== Set these =====================
 
 set(IMM_CV_HEADER 
-    "/Users/lukenash/Documents/GitHub/sound-manager-sdk/include"#"<full/path/to/immersitech_clearvoice.h>"
+    "<full/path/to/immersitech_clearvoice.h/folder>" #path should NOT include the header file itself
 )
 
 set(IMM_CV_LIB 
-    "/Users/lukenash/Documents/GitHub/sound-manager-sdk/build/clearvoice/Release/libimm_clearvoice.a"#"<full/path/to/imm_clearvoice/library>"
+    "<full/path/to/imm_clearvoice/library>" #path should include the library file
 )
 
 set(INTEL_IPP_INCLUDE 
-    "/Users/lukenash/Desktop/ipp_libs"#"<full/path/to/intel/ipp/include/files>"
+    "<full/path/to/intel/ipp/include/folder>" #path should NOT include the header file itself
 )
 
 set(INTEL_IPP_LIBS 
-    "/Users/lukenash/Desktop/ipp_libs/libippcore.a"
-    "/Users/lukenash/Desktop/ipp_libs/libippi.a"
-    "/Users/lukenash/Desktop/ipp_libs/libipps.a"
-    "/Users/lukenash/Desktop/ipp_libs/libippvm.a"#"<full/path/to/intel/ipp/libippcore.a><full/path/to/intel/ipp/libippi.a>"
+    "<full/path/to/intel/ipp/libippcore.a>"
+    "<full/path/to/intel/ipp/libippi.a>"
+    "<full/path/to/intel/ipp/libipps.a>"
+    "<full/path/to/intel/ipp/libippvm.a>" #paths should include the library file
 )
 
 #===============================================
