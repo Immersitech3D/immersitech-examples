@@ -5,18 +5,15 @@
 
 int main(int argc, const char* argv[])
 {
-    if (argc < 7)
+    if (argc < 4)
     {
-        std::cout << "Usage: \nclearvoice_demo.exe <licensefile> <input.wav> <output.wav> <anc_mix> <agc_enable> <aeq_enable>" << std::endl;
+        std::cout << "Usage: \nclearvoice_demo.exe <licensefile> <input.wav> <output.wav> " << std::endl;
         return 1;
     }
 
     const char* license_filepath = argv[1];
     const char* input_audio_file = argv[2];
     const char* output_audio_file = argv[3];
-    int anc_mix = atoi(argv[4]);
-	int aeq_enabled = atoi(argv[5]);
-	int agc_enabled = atoi(argv[6]);
 
     // Load input file
     AudioFile<float> input_file;
@@ -37,14 +34,29 @@ int main(int argc, const char* argv[])
     // Create output file
     AudioFile<float> output_file;
     output_file.setNumSamplesPerChannel(max_samples);
+    output_file.setSampleRate(sample_rate);
+
+    // Create necessary variables
+    imm_cv_config config;
+    imm_error_code error_code;
+    imm_cv_output_metadata metadata;
+    imm_cv_handle handle;
+
+    // Configure Immersitech ClearVoice
+    config = imm_cv_get_default_config();
+    config.input_sample_rate = sample_rate;
+    config.output_sample_rate = sample_rate;
 
     // Initialize Immersitech ClearVoice
-    imm_clearvoice speech_enhancer = imm_clearvoice(license_filepath, sample_rate, aeq_enabled, agc_enabled, anc_mix);
+    handle = imm_cv_init_from_file(license_filepath, config, &error_code);
+    if (error_code != IMM_ERROR_NONE) {
+        return 1;
+    }
 
     // Process audio file one buffer at a time
     int s = 0;
     while(s < max_samples) {
-        speech_enhancer.process(&input_file.samples[0][s], &output_file.samples[0][s]);
+        imm_cv_process(handle, &input_file.samples[0][s], &output_file.samples[0][s], &metadata);
         s = s + buffer_size;
     }
 
