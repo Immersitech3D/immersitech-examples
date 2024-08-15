@@ -64,5 +64,7 @@ int main(int argc, const char* argv[])
     output_file.setBitDepth(16);
     output_file.save(output_audio_file, AudioFileFormat::Wave);
     
+    std::cout << "Done." << std::endl;
+
     return 0;
 }
